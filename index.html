@@ -1,227 +1,142 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Your Name — Articles</title>
-  <style>
-    :root{
-      --bg: #ffffff;
-      --text: #111111;
-      --muted: #444444;
-      --card: #f6f6f6;
-      --accent: #0066ff;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Site</title>
+
+<style>
+    /* ---------- THEME ---------- */
+    :root {
+        --bg: #1e1e22;
+        --text: #f5f5f5;
+        --card: #2d2d31;
+        --accent: #f7d88c;
     }
-    [data-theme="dark"]{
-      --bg: #0b0b0d;
-      --text: #e9eef6;
-      --muted: #9aa4b2;
-      --card: #0f1113;
-      --accent: #4ea1ff;
-    }
-    /* basic layout */
-    html,body{height:100%;}
-    body{
-      margin:0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:var(--bg);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
-      display:flex;
-      flex-direction:column;
-      min-height:100vh;
-      padding:24px;
-      box-sizing:border-box;
+    [data-theme="light"] {
+        --bg: #ffffff;
+        --text: #1a1a1a;
+        --card: #eeeeee;
+        --accent: #f2c85b;
     }
 
-    .topbar{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      justify-content:space-between;
-      margin-bottom:28px;
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        text-align: center;
+        padding: 40px 20px;
     }
 
-    .brand {
-      display:flex;
-      gap:12px;
-      align-items:center;
+    /* -------- LOGO AREA -------- */
+    .logo-container {
+        margin-top: 20px;
+    }
+    .logo {
+        height: 120px;   /* SAME SIZE AS YOUR EXAMPLE */
+        object-fit: contain;
     }
 
-    .avatar {
-      width:52px;
-      height:52px;
-      border-radius:8px;
-      background:linear-gradient(135deg,var(--accent),transparent);
-      display:grid;
-      place-items:center;
-      color: white;
-      font-weight:700;
-      font-size:18px;
-      flex:0 0 52px;
+    /* -------- MAIN TITLE -------- */
+    .subtitle {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 15px;
+        margin-bottom: 30px;
     }
 
-    h1{
-      margin:0;
-      font-size:20px;
-      letter-spacing:-0.2px;
+    /* -------- BIG BUTTON -------- */
+    .big-btn {
+        display: inline-block;
+        background: var(--accent);
+        color: #000;
+        padding: 16px 40px;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 20px;
+        transition: 0.2s;
+    }
+    .big-btn:hover {
+        opacity: 0.85;
     }
 
-    .controls {
-      display:flex;
-      gap:8px;
-      align-items:center;
+    /* -------- CONTENT AREA -------- */
+    .content {
+        max-width: 900px;
+        margin: 60px auto;
+        text-align: left;
+        line-height: 1.7;
+    }
+    .content h2 {
+        color: var(--accent);
+        margin-top: 40px;
     }
 
-    /* theme toggle button */
-    .btn {
-      appearance:none;
-      border:1px solid rgba(0,0,0,0.06);
-      background:var(--card);
-      color:var(--text);
-      padding:8px 12px;
-      border-radius:10px;
-      cursor:pointer;
-      font-size:14px;
+    /* -------- THEME TOGGLE -------- */
+    #themeToggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--card);
+        color: var(--text);
+        padding: 10px 14px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
     }
-    .btn:active{transform:scale(.98);}
+</style>
 
-    main{
-      max-width:900px;
-      width:100%;
-      margin:0 auto;
-      flex:1 0 auto;
-    }
-
-    .intro {
-      margin-bottom:20px;
-      color:var(--muted);
-    }
-
-    .article-list{
-      display:grid;
-      gap:14px;
-    }
-
-    .article{
-      background:var(--card);
-      border-radius:12px;
-      padding:18px;
-      box-shadow: 0 1px 0 rgba(0,0,0,0.03);
-    }
-
-    .article h2{
-      margin:0 0 8px 0;
-      font-size:16px;
-    }
-    .article p{margin:0;color:var(--muted);}
-
-    footer{
-      margin-top:28px;
-      color:var(--muted);
-      font-size:13px;
-      text-align:center;
-    }
-
-    /* small screens */
-    @media (max-width:520px){
-      .avatar{width:44px;height:44px;font-size:16px}
-      body{padding:16px}
-    }
-
-  </style>
 </head>
 <body>
-  <div class="topbar">
-    <div class="brand">
-      <div class="avatar" id="avatar">YN</div>
-      <!-- Replace "Your Name" below with your real name -->
-      <div>
-        <h1 id="site-name">Your Name</h1>
-        <div class="intro">A simple place to write and publish short articles — static HTML only.</div>
-      </div>
-    </div>
 
-    <div class="controls">
-      <button id="theme-toggle" class="btn" aria-pressed="false" title="Toggle light / dark">🌙 Toggle theme</button>
-    </div>
-  </div>
+<button id="themeToggle">Toggle Theme</button>
 
-  <main>
-    <!-- Add your articles as <article class="article"> blocks -->
-    <section class="article-list" id="articles">
-      <article class="article">
-        <h2>Welcome</h2>
-        <p>This is a tiny static site template. Edit this file and replace "Your Name" at the top. Add more &lt;article class="article"&gt;…&lt;/article&gt; blocks below for more posts.</p>
-      </article>
+<!-- ================= HEADER AREA ================= -->
 
-      <article class="article">
-        <h2>How to publish</h2>
-        <p>Commit this file as <code>index.html</code> to a GitHub repository and enable GitHub Pages (branch: main or gh-pages). That's it — no backend needed.</p>
-      </article>
-    </section>
-  </main>
+<div class="logo-container">
+    <!-- ⭐ Replace "your-logo.png" with your real logo file -->
+    <img src="your-logo.png" alt="Logo" class="logo">
+</div>
 
-  <footer>
-    Tip: open this file in a text editor and replace the heading with your name. Theme preference is saved in your browser.
-  </footer>
+<div class="subtitle">
+    Your Subtitle Goes Here (like: "The Best Free Site for Movie Lovers")
+</div>
 
-  <script>
-    (function () {
-      const root = document.documentElement;
-      const toggle = document.getElementById('theme-toggle');
-      const avatar = document.getElementById('avatar');
-      const siteNameEl = document.getElementById('site-name');
+<a href="#" class="big-btn">View Full Site →</a>
 
-      // Utility: apply theme
-      function applyTheme(name) {
-        if (name === 'dark') {
-          root.setAttribute('data-theme', 'dark');
-          toggle.textContent = '☀️ Light';
-          toggle.setAttribute('aria-pressed', 'true');
-        } else {
-          root.removeAttribute('data-theme');
-          toggle.textContent = '🌙 Dark';
-          toggle.setAttribute('aria-pressed', 'false');
-        }
-      }
+<!-- ================= CONTENT AREA ================= -->
 
-      // Init: from localStorage, else prefers-color-scheme else light
-      const stored = localStorage.getItem('preferred-theme');
-      if (stored) {
-        applyTheme(stored);
-      } else {
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        applyTheme(prefersDark ? 'dark' : 'light');
-      }
+<div class="content">
 
-      // Toggle handler
-      toggle.addEventListener('click', () => {
-        const isDark = root.getAttribute('data-theme') === 'dark';
-        const next = isDark ? 'light' : 'dark';
-        applyTheme(next);
-        localStorage.setItem('preferred-theme', next);
-      });
+    <h2>Sample Article Title</h2>
+    <p>
+        This is your article text. You can write anything here.
+        Add more sections below to create a full article page.
+    </p>
 
-      // Small nicety: show initials in avatar from the heading text
-      function updateAvatar() {
-        const name = siteNameEl.textContent.trim() || 'Your Name';
-        const parts = name.split(/\s+/).filter(Boolean);
-        let initials = '';
-        if (parts.length === 1) {
-          initials = parts[0].slice(0,2).toUpperCase();
-        } else {
-          initials = (parts[0][0] + parts[parts.length-1][0]).toUpperCase();
-        }
-        avatar.textContent = initials;
-      }
-      updateAvatar();
+    <h2>Another Heading</h2>
+    <p>
+        Add more paragraphs here. The layout stays clean and centered.
+    </p>
 
-      // If you prefer to edit the name in-place in the browser, you could make the heading contenteditable:
-      // siteNameEl.contentEditable = true; updateAvatar() on input events. (Left out to keep it simple.)
-    })();
-  </script>
+</div>
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+    const toggle = document.getElementById("themeToggle");
+    const root = document.documentElement;
+
+    const saved = localStorage.getItem("theme");
+    if (saved) root.setAttribute("data-theme", saved);
+
+    toggle.onclick = () => {
+        const now = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+        root.setAttribute("data-theme", now);
+        localStorage.setItem("theme", now);
+    };
+</script>
+
 </body>
 </html>
