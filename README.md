@@ -2,9 +2,10 @@
 
 https://moviesmocktail.github.io/moviesmocktail/
 
+![image alt](https://github.com/moviesmocktail/moviesmocktail/blob/main/movie.png?raw=true)
+
 <!--
-**moviesmocktail/moviesmocktail** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-<img width="978" height="274" alt="moviee" src="https://github.com/user-attachments/assets/2bd24283-2eeb-498b-9619-502484ca2c0c" />
+**moviesmocktail/moviesmocktail** is a ✨ _special_ ✨ repository because its `README
 
 Here are some ideas to get you started:
 
