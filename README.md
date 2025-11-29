@@ -4,6 +4,9 @@ https://moviesmocktail.github.io/moviesmocktail/
 
 ![image alt](https://github.com/moviesmocktail/moviesmocktail/blob/main/movie.png?raw=true)
 
+Welcome to MoviesMocktail, your one-stop destination for trustworthy links to well-known movie-streaming and movie-downloading websites. It can be difficult to locate reliable and secure sources in a world full of entertainment platforms. By consolidating everything into a single, tidy hub, MoviesMocktail streamlines that experience.
+
+
 <!--
 **moviesmocktail/moviesmocktail** is a ✨ _special_ ✨ repository because its `README
 
